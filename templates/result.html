@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENTIMENT ANALYSIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
     <div class="result-container">
         <h1>Analysis Result</h1>
-        <p id="sentiment"></p>
-        <p id="explanation"></p>
+        <p id="sentiment">Sentiment: {{ sentiment }}</p>
+        <p id="explanation">Explanation: {{ explanation }}</p>
         <a href="/"><button>Analyze Another Review</button></a>
     </div>
 </body>
