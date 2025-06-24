@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                 body: JSON.stringify({ review: fullReview })
             });
             const data = await response.json();
-            localStorage.setItem('sentiment', data.sentiment);
-            localStorage.setItem('explanation', data.explanation);
-            window.location.href = '/result';
+            const params = new URLSearchParams({
+                sentiment: data.sentiment,
+                explanation: data.explanation
+            });
+            window.location.href = '/result?' + params.toString();
         });
 
         const res = await fetch('/wordlists');
@@ -23,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         const negRadio = document.getElementById('negativeRadio');
         const dropdown = document.getElementById('wordDropdown');
         const container = document.getElementById('dropdownContainer');
-        const explanationContainer = document.getElementById('explanationContainer');
         const reviewText = document.getElementById('reviewText');
 
         posRadio.addEventListener('change', function() {
@@ -44,9 +45,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             const selectedWord = dropdown.value;
             if (selectedWord) {
                 reviewText.value = selectedWord;
-                if (explanationContainer) {
-                    explanationContainer.style.display = 'block';
-                }
             }
         });
 
@@ -64,10 +62,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
     }
-
-    if (document.getElementById('sentiment')) {
-        document.getElementById('sentiment').textContent = 'Sentiment: ' + localStorage.getItem('sentiment');
-        document.getElementById('explanation').textContent = 'Explanation: ' + localStorage.getItem('explanation');
-    }
 });
+
 
