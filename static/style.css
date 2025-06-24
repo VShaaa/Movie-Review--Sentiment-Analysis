@@ -58,7 +58,7 @@ textarea {
     cursor:pointer;
     transition:opacity 0.3s ease;
 }
-.result-container button {background:linear-gradient(45deg,#ff9966,#ff5e62)}
+.result-container button {background:linear-gradient(45deg,#43cea2,#185a9d)}
 .container button:hover,.result-container button:hover {opacity:0.85}
 #explanationContainer {margin-top:15px}
 #sentiment,#explanation {
