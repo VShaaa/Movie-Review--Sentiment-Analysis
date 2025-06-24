@@ -1,27 +1,29 @@
 body {
     font-family:'Poppins',sans-serif;
-    background: 
-        linear-gradient(rgba(103, 116, 169, 0.6), rgba(94, 157, 154, 0.6)),
-        url('tyson-moultrie-BQTHOGNHo08-unsplash.jpg') center/cover no-repeat;
+    background:linear-gradient(rgba(103,116,169,0.6),rgba(94,157,154,0.6)),url('tyson-moultrie-BQTHOGNHo08-unsplash.jpg') center/cover no-repeat;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    min-height:100vh;
     margin:0;
 }
 .container,.result-container {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0px 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 20px;
-    padding: 30px;
-    width: 90%;
-    max-width: 500px;
-    color: #333;
-    text-align: center;
+    background:rgba(255,255,255,0.15);
+    box-shadow:0 8px 32px 0 rgba(0,0,0,0.37);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-radius:20px;
+    padding:30px;
+    width:90%;
+    max-width:500px;
+    color:#333;
+    text-align:center;
 }
-h1 {font-size:26px;color:#333;margin-bottom:20px}
+h1 {
+    font-size:26px;
+    color:#333;
+    margin-bottom:20px;
+}
 input[type="radio"] {margin:10px}
 select {
     width:100%;
@@ -39,7 +41,7 @@ textarea {
     border-radius:10px;
     padding:10px;
     border:none;
-    background:rgb(255, 255, 255);
+    background:#fff;
     color:#333;
     margin-top:10px;
     font-size:16px;
@@ -61,7 +63,7 @@ textarea {
 .result-container button {
     width:auto;
     padding:10px 20px;
-    background:linear-gradient(45deg,#43cea2,#185a9d);
+    background:linear-gradient(45deg,#ff9966,#ff5e62);
     border:none;
     border-radius:10px;
     color:#fff;
@@ -79,4 +81,14 @@ textarea {
     margin:10px 0;
     border-radius:12px;
     color:#333;
+}
+@media(max-width:600px){
+    .container,.result-container{
+        padding:20px;
+        width:95%;
+    }
+    h1{font-size:22px}
+    textarea{height:80px;font-size:14px}
+    select{font-size:14px}
+    .container button,.result-container button{font-size:14px;padding:10px}
 }
