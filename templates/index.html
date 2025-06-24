@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Review Sentiment</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MOVIE REVIEW</h1>
+        <div>
+            <input type="radio" name="wordType" id="positiveRadio" value="positive">
+            <label for="positiveRadio">Positive</label>
+
+            <input type="radio" name="wordType" id="negativeRadio" value="negative">
+            <label for="negativeRadio">Negative</label>
+        </div>
+        <div id="dropdownContainer" style="display: none;">
+            <h3>Your review:</h3>
+            <select id="wordDropdown">
+                <option value="">--Select--</option>
+            </select>
+        </div>
+        <form id="reviewForm">
+            <textarea id="reviewText" placeholder="Your review..." required></textarea><br>
+            <button type="submit">Analysis</button>
+        </form>
+    </div>
+</body>
+</html>
