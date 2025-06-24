@@ -19,3 +19,9 @@ python app.py
 
 Move to Frontend-> Index.html(ensure your live server is enabled)-> Go live
 
+**###Deploy**
+Deploy on: https://render.com/
+
+WEBSERVICES:
+
+![Screenshot 2025-06-24 185510](https://github.com/user-attachments/assets/016af307-6dd1-4ff7-aa60-4795ca7002bb)
