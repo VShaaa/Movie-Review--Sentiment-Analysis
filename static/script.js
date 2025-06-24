@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const experienceField = document.getElementById('experienceText');
             const experience = experienceField ? experienceField.value : '';
             const fullReview = review + ' ' + experience;
-            const response = await fetch('http://127.0.0.1:5000/analyze', {
+            const response = await fetch('/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ review: fullReview })
@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             localStorage.setItem('explanation', data.explanation);
             window.location.href = '/result';
         });
-        const res = await fetch('http://127.0.0.1:5000/wordlists');
+
+        const res = await fetch('/wordlists');
         const lists = await res.json();
         const posRadio = document.getElementById('positiveRadio');
         const negRadio = document.getElementById('negativeRadio');
@@ -24,29 +25,33 @@ document.addEventListener('DOMContentLoaded', async function() {
         const container = document.getElementById('dropdownContainer');
         const explanationContainer = document.getElementById('explanationContainer');
         const reviewText = document.getElementById('reviewText');
+
         posRadio.addEventListener('change', function() {
             if (posRadio.checked) {
                 container.style.display = 'block';
                 populateDropdown(lists.positive);
             }
         });
+
         negRadio.addEventListener('change', function() {
             if (negRadio.checked) {
                 container.style.display = 'block';
                 populateDropdown(lists.negative);
             }
         });
+
         dropdown.addEventListener('change', function() {
             const selectedWord = dropdown.value;
             if (selectedWord) {
-                reviewText.value = selectedWord; 
+                reviewText.value = selectedWord;
                 if (explanationContainer) {
                     explanationContainer.style.display = 'block';
                 }
             }
         });
+
         function populateDropdown(words) {
-            dropdown.innerHTML = ""; 
+            dropdown.innerHTML = "";
             const defaultOption = document.createElement('option');
             defaultOption.value = "";
             defaultOption.textContent = "--Select--";
@@ -59,8 +64,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
     }
+
     if (document.getElementById('sentiment')) {
         document.getElementById('sentiment').textContent = 'Sentiment: ' + localStorage.getItem('sentiment');
         document.getElementById('explanation').textContent = 'Explanation: ' + localStorage.getItem('explanation');
     }
 });
+
