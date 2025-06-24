@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const data = await response.json();
             localStorage.setItem('sentiment', data.sentiment);
             localStorage.setItem('explanation', data.explanation);
-            window.location.href = 'result.html';
+            window.location.href = '/result';
         });
         const res = await fetch('http://127.0.0.1:5000/wordlists');
         const lists = await res.json();
