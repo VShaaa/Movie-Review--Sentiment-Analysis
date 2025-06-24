@@ -6,11 +6,13 @@ document.addEventListener('DOMContentLoaded', async function() {
             const experienceField = document.getElementById('experienceText');
             const experience = experienceField ? experienceField.value : '';
             const fullReview = review + ' ' + experience;
+
             const response = await fetch('/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ review: fullReview })
             });
+
             const data = await response.json();
             const params = new URLSearchParams({
                 sentiment: data.sentiment,
@@ -62,6 +64,16 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
     }
+
+    if (window.location.pathname === '/result') {
+        const params = new URLSearchParams(window.location.search);
+        const sentiment = params.get('sentiment');
+        const explanation = params.get('explanation');
+
+        document.getElementById('sentiment').textContent = 'Sentiment: ' + sentiment;
+        document.getElementById('explanation').textContent = 'Explanation: ' + explanation;
+    }
 });
+
 
 
